@@ -10,7 +10,7 @@
 body{
     margin: var(--0-2-rem);
     padding: 0;
-    font-family:  sans-serif;
+    font-family: "Kanit", serif;
     width: -webkit-fill-available;
 }
 

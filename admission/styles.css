@@ -75,6 +75,7 @@ a.button {
     color: #fff;
     padding: 12px 16px;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 a.button:hover {

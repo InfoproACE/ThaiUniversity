@@ -88,3 +88,8 @@ select {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+.star {
+    color: #fb404b;
+    padding-left: 3px;
+}

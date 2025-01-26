@@ -32,6 +32,11 @@ body{
     }
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
 .logo {
     display: flex;
     align-items: center;

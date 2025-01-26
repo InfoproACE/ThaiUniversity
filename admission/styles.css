@@ -116,3 +116,18 @@ a.button:hover {
     width: -webkit-fill-available;
     border: 1px solid;
 }
+
+.important-dates li a#port:hover{
+    background: var(--port);
+    color: #fff;
+}
+
+.important-dates li a#quota:hover{
+    background: var(--quota);
+    color: #fff;
+}
+
+.important-dates li a#admission:hover{
+    background: var(--admission);
+    color: #fff;
+}

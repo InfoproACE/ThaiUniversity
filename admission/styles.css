@@ -5,6 +5,9 @@
     --0-8-rem: 0 8rem;
     --0-10-rem: 0 10rem;
     --n: none;
+    --port: #ffb600;
+    --quota: #f26b55;
+    --admission: #00a0a9;
 }
 
 body{
@@ -79,7 +82,6 @@ a.button:hover {
     align-items: center;
     justify-content: flex-start;
     display: flex;
-    gap: 10px;
 }
 
 .important-dates li span.port {
@@ -107,4 +109,9 @@ a.button:hover {
     text-align: center;
     padding: 12px;
     width: 92px;
+}
+
+.important-dates li a {
+    padding: 24px 12px;
+    width: -webkit-fill-available;
 }

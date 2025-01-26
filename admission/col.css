@@ -93,3 +93,7 @@ select {
     color: #fb404b;
     padding-left: 3px;
 }
+
+section.form-section {
+    text-align: start;
+}

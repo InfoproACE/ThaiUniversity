@@ -65,3 +65,11 @@ nav ul {
 li {
     list-style: none;
 }
+
+a.button {
+    color: #0007c0;
+}
+
+a.button:hover {
+    text-decoration: underline;
+}

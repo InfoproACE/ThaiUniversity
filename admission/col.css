@@ -97,3 +97,12 @@ select {
 section.form-section {
     text-align: start;
 }
+
+input.submit {
+    transition: .5s;
+}
+
+input.submit:hover {
+    background: #dd4b39;
+    color: #fff;
+}

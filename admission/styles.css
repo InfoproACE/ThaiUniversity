@@ -119,22 +119,22 @@ a.button:hover {
 }
 
 .important-dates li a#port:hover{
-    background: var(--port);
-    color: #fff;
+    color: #ffb600;
+    background-color: #fff8ea;
     padding: 24px 12px;
      border: none; 
 }
 
 .important-dates li a#quota:hover{
-    background: var(--quota);
-    color: #fff;
+    color: #f26b55;
+    background-color: #ffefef;
     padding: 24px 12px;
      border: none; 
 }
 
 .important-dates li a#admission:hover{
-    background: var(--admission);
-    color: #fff;
+    color: #00a0a9;
+    background-color: #eefeff
     padding: 24px 12px;
      border: none; 
 }

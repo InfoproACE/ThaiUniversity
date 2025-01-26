@@ -73,3 +73,38 @@ a.button {
 a.button:hover {
     text-decoration: underline;
 }
+
+.important-dates li {
+    padding: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    gap: 10px;
+}
+
+.important-dates li span.port {
+    background: #ffb600;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    width: 92px;
+}
+
+.important-dates li span.quota {
+    background: #f26b55;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    width: 92px;
+}
+
+.important-dates li span.admission {
+    background: #00a0a9;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    width: 92px;
+}

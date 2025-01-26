@@ -95,17 +95,21 @@
     </footer>
 
     
-        <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxjw_YaXUJe88JPf8I1xdAvOiU4kTfwvFr70v9CoxT-P0f9mXfvV0jZ1BedW13uMJ6l/exec'
-            const form = document.forms['hello-sheet']
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("บันทึกข้อมูลเรียบร้อยแล้ว.."))
-                .catch(error => console.error('Error!', error.message))
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxjw_YaXUJe88JPf8I1xdAvOiU4kTfwvFr70v9CoxT-P0f9mXfvV0jZ1BedW13uMJ6l/exec'
+        const form = document.forms['hello-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert("บันทึกข้อมูลเรียบร้อยแล้ว..");
+                window.location.href = "https://thaiuniversity.pages.dev/admission/login"; // Redirect to login page
             })
-          </script>
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

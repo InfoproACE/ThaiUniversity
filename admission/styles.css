@@ -82,6 +82,7 @@ a.button:hover {
     align-items: center;
     justify-content: flex-start;
     display: flex;
+    margin: -12px 0;
 }
 
 .important-dates li span.port {
@@ -90,7 +91,7 @@ a.button:hover {
     font-weight: 700;
     text-align: center;
     padding: 12px;
-    width: 92px;
+    width: 105px;
 }
 
 .important-dates li span.quota {

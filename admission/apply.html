@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ลงทะเบียนบัญชี TCAS68 จุฬาลงกรณ์มหาวิทยาลัย">
     <title>ลงทะเบียนบัญชี TCAS68 | จุฬาลงกรณ์มหาวิทยาลัย</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="col.css">
 </head>
@@ -29,12 +30,13 @@
         <h1>ลงทะเบียนบัญชี TCAS68</h1>
         <p>กรุณากรอกข้อมูลให้ครบถ้วนเพื่อทำการลงทะเบียนเข้าสู่ระบบการคัดเลือก TCAS68 ของจุฬาลงกรณ์มหาวิทยาลัย</p>
         
-        <form id="registration-form">
+        
+      <form method="post" autocomplete="off" name="hello-sheet">
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
                         <label for="idCard">รหัสประจำตัวประชาชน <star class="star">*</star></label>
-                        <input type="text" id="idCard" name="idCard" required="">
+                        <input type="text" class="form-control" name="idCard" required>
                     </div>
                 </div>
             </div>
@@ -43,13 +45,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="password">รหัสผ่าน <star class="star">*</star></label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="text" class="form-control" name="password" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="confirmPassword">ยืนยันรหัสผ่าน <star class="star">*</star></label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <input type="text" class="form-control" name="confirmPassword" required>
                     </div>
                 </div>
             </div>
@@ -57,25 +59,20 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label for="title">คำนำหน้า <star class="star">*</star></label>
-                        <select id="title" name="title" required>
-                            <option value="" disabled selected>-- เลือก --</option>
-                            <option value="นาย">นาย</option>
-                            <option value="นาง">นาง</option>
-                            <option value="นางสาว">นางสาว</option>
-                        </select>
+                        <label for="prefix">คำนำหน้า <star class="star">*</star></label>
+                        <input type="text" class="form-control" name="prefix" required>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="firstName">ชื่อ <star class="star">*</star></label>
-                        <input type="text" id="firstName" name="firstName" required>
+                          <input type="text" class="form-control" name="fname" required>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="lastName">นามสกุล <star class="star">*</star></label>
-                        <input type="text" id="lastName" name="lastName" required>
+                          <input type="text" class="form-control" name="lname" required>
                     </div>
                 </div>
             </div>
@@ -84,12 +81,12 @@
                 <div class="col-md">
                     <div class="form-group">
                         <label for="email">อีเมล <star class="star">*</star></label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" class="form-control" name="email" required>
                     </div>
                 </div>
             </div>
             
-            <button type="submit">สมัคร</button>
+            <button type="submit" name="submit" value="Send message" class="btn btn-primary">สมัคร</button>
         </form>
     </section>
 
@@ -97,38 +94,20 @@
         <p>&copy; 2025 จุฬาลงกรณ์มหาวิทยาลัย</p>
     </footer>
 
-    <script>
-        // Function to handle form submission
-        document.getElementById("registration-form").addEventListener("submit", function(e) {
-            e.preventDefault(); // Prevent default form submission
-
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
-
-            // Call Google Apps Script function to send data to Google Sheets
-            sendDataToGoogleSheets(formObject);
-        });
-
-        function sendDataToGoogleSheets(formObject) {
-            const scriptURL = 'https://script.google.com/macros/s/AKfycb...your_script_id/exec'; // Replace with your Google Apps Script URL
-
-            fetch(scriptURL, {
-                method: 'POST',
-                body: new URLSearchParams(formObject),
+    
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxjw_YaXUJe88JPf8I1xdAvOiU4kTfwvFr70v9CoxT-P0f9mXfvV0jZ1BedW13uMJ6l/exec'
+            const form = document.forms['hello-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("บันทึกข้อมูลเรียบร้อยแล้ว.."))
+                .catch(error => console.error('Error!', error.message))
             })
-            .then(response => response.json())
-            .then(result => {
-                alert('ลงทะเบียนสำเร็จ');
-                document.getElementById("registration-form").reset();
-            })
-            .catch(error => {
-                alert('มีข้อผิดพลาดในการส่งข้อมูล');
-                console.error('Error:', error);
-            });
-        }
-    </script>
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>

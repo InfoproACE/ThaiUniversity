@@ -115,19 +115,23 @@ a.button:hover {
     padding: 23px 12px;
     width: -webkit-fill-available;
     border: 1px solid;
+    transition: left 0.3s ease-out, color 0.3s ease;
 }
 
 .important-dates li a#port:hover{
     background: var(--port);
     color: #fff;
+    padding: 24px 12px;
 }
 
 .important-dates li a#quota:hover{
     background: var(--quota);
     color: #fff;
+    padding: 24px 12px;
 }
 
 .important-dates li a#admission:hover{
     background: var(--admission);
     color: #fff;
+    padding: 24px 12px;
 }

@@ -73,6 +73,8 @@
         <p>&copy; 2025 มหาวิทยาลัย วินเทคศาสตร์</p>
     </footer>
     
+
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll("nav > ul > li").forEach(function (menu) {
@@ -92,6 +94,10 @@
                 document.querySelectorAll(".submenu").forEach(sub => {
                     sub.style.display = "none";
                 });
+            });
+            
+            window.addEventListener("load", function() {
+                document.querySelector(".loader-wrapper").style.display = "none";
             });
         });
     </script>

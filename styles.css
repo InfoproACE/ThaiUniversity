@@ -12,13 +12,13 @@ header {
     text-align: center;
 }
 
+
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #003d82;
 }
 
 nav ul li {
@@ -31,10 +31,11 @@ nav ul li a {
     color: white;
     padding: 10px 15px;
     display: block;
+    border-bottom: 2px solid #ffffff00;
 }
 
 nav ul li a:hover {
-    background-color: #002a5c;
+    border-bottom: 2px solid #fff;
 }
 
 .submenu {

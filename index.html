@@ -1,1 +1,99 @@
-<a href="https://thaiuniversity.pages.dev/admission/index.html">รับเข้าศึกษาต่อ มหาวิทยาลัยวิศวกรรมศาสตร์</a>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มหาวิทยาลัย วินเทคศาสตร์</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            list-style: none;
+        }
+        .submenu li {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+    
+    <header>
+        <h1>มหาวิทยาลัย วินเทคศาสตร์</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#about">เกี่ยวกับเรา</a>
+                    <ul class="submenu">
+                        <li><a href="#history">ประวัติ</a></li>
+                        <li><a href="#vision">วิสัยทัศน์</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#programs">หลักสูตร</a>
+                    <ul class="submenu">
+                        <li><a href="#bachelor">ปริญญาตรี</a></li>
+                        <li><a href="#master">ปริญญาโท</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="about">
+            <h2>เกี่ยวกับมหาวิทยาลัย</h2>
+            <p>มหาวิทยาลัย วินเทคศาสตร์ เป็นศูนย์กลางแห่งการเรียนรู้ด้านเทคโนโลยีและนวัตกรรม</p>
+        </section>
+        
+        <section id="programs">
+            <h2>หลักสูตรที่เปิดสอน</h2>
+            <p>เรามีหลักสูตรที่ครอบคลุมทุกสาขาเทคโนโลยี</p>
+        </section>
+        
+        <section id="contact">
+            <h2>ติดต่อเรา</h2>
+            <p>สามารถติดต่อเราได้ที่อีเมล info@vintech.ac.th</p>
+        </section>
+        
+        <section id="admission">
+            <h2>รับเข้าศึกษาต่อ</h2>
+            <p><a href="https://thaiuniversity.pages.dev/admission/index.html">รับเข้าศึกษาต่อ มหาวิทยาลัยวิศวกรรมศาสตร์</a></p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 มหาวิทยาลัย วินเทคศาสตร์</p>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("nav > ul > li").forEach(function (menu) {
+                menu.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    let submenu = this.querySelector(".submenu");
+                    document.querySelectorAll(".submenu").forEach(sub => {
+                        if (sub !== submenu) {
+                            sub.style.display = "none";
+                        }
+                    });
+                    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+                });
+            });
+            
+            document.addEventListener("click", function () {
+                document.querySelectorAll(".submenu").forEach(sub => {
+                    sub.style.display = "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

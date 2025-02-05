@@ -1,8 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Kanit", serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+}
+
+o {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
 }
 
 header {

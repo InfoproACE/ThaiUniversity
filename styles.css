@@ -61,6 +61,15 @@ nav ul li a:hover {
 .submenu li {
     padding: 10px;
     text-align: left;
+    margin: 0;
+}
+
+.submenu li:hover {
+    padding: 10px;
+    text-align: left;
+    margin: 0;
+    background: #003d82;
+    color: #fff;
 }
 
 .submenu li a {
@@ -70,7 +79,8 @@ nav ul li a:hover {
 }
 
 .submenu li a:hover {
-    background-color: #f4f4f4;
+    border-bottom: 2px solid #ffffff00;
+    color: #fff;
 }
 
 main {

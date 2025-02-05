@@ -80,7 +80,7 @@ nav ul li a:hover {
 
 .submenu li a:hover {
     border-bottom: 2px solid #ffffff00;
-    color: #fff;
+    color: inherit;
 }
 
 main {

@@ -35,13 +35,12 @@
     <section class="form-section">
         <h1>ลืมรหัสผ่าน?</h1>
         
-        
-      <form method="post" autocomplete="off" name="hello-sheet">
+        <form method="post" autocomplete="off" name="hello-sheet" id="hello-sheet">
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
                         <label for="idCard">รหัสประจำตัวประชาชน</label>
-                        <input type="text" class="form-control" name="idCard" required>
+                        <input type="text" class="form-control" name="idCard" id="idCard" required>
                     </div>
                 </div>
             </div>
@@ -50,7 +49,7 @@
                 <div class="col-md">
                     <div class="form-group">
                         <label for="email">อีเมล</label>
-                        <input type="email" class="form-control" name="email" required>
+                        <input type="email" class="form-control" name="email" id="email" required>
                     </div>
                 </div>
             </div>
@@ -60,32 +59,36 @@
                 <p id="error-message" style="color: red;"></p>
             </center>
         </form>
+
     </section>
 
     <footer>
         <p>&copy; 2025 มหาวิทยาลัยวินเทคศึกษา</p>
     </footer>
     <script>
+
         document.getElementById("hello-sheet").addEventListener("submit", async function (event) {
-        event.preventDefault(); 
+        event.preventDefault(); // ป้องกันไม่ให้ฟอร์ม submit ธรรมดา
     
-        const idCard = document.getElementsByName("idCard")[0].value;
-        const email = document.getElementsByName("email")[0].value;
+        const idCard = document.getElementById("idCard").value;
+        const email = document.getElementById("email").value;
         const errorMessage = document.getElementById("error-message");
     
         try {
-            // ดึงข้อมูลจาก Google Apps Script ตัวแรก
+            // ดึงข้อมูลจาก Google Apps Script (ที่เก็บข้อมูล idCard, email)
             const response = await fetch("https://script.google.com/macros/s/AKfycbx2S2Ut89_QNMO8CtSDaqYUIGm6K6BjQME4lD6CZUyvTp2NUwBWIb2y3KBR2dAF1_Cz/exec");
             const users = await response.json();
     
+            // ค้นหาผู้ใช้ที่มี idCard และ email ตรงกับที่กรอก
             const user = users.find(u => u.idCard == idCard && u.email == email);
     
             if (user) {
-                // ส่งอีเมล
+                // ถ้าพบผู้ใช้ให้ส่งอีเมล
                 sendResetEmail(user);
                 errorMessage.style.color = "green";
                 errorMessage.textContent = "ส่งอีเมลสำเร็จ! โปรดตรวจสอบอีเมลของคุณ";
             } else {
+                // ถ้าไม่พบให้แสดงข้อความผิดพลาด
                 errorMessage.style.color = "red";
                 errorMessage.textContent = "รหัสประจำตัวประชาชนหรืออีเมลไม่ถูกต้อง!";
             }
@@ -103,7 +106,7 @@
                      `👉 ตั้งรหัสผ่านใหม่: ${resetLink}\n\n` +
                      `หากท่านไม่สามารถเข้าลิงก์ได้ กรุณาติดต่อศูนย์ทดสอบทางวิชาการแห่งมหาวิทยาลัยวินเทคศึกษา`;
     
-        // ส่งข้อมูลไปยัง Google Apps Script ตัวที่สอง
+        // ส่งอีเมลไปยังผู้ใช้
         fetch("https://script.google.com/macros/s/AKfycbxjA_Beo3os_JBHqKj5sabntLKj8M-uTVFzvies9VhMgCqaHnB4jTfNx4DHPE0A1_Oq/exec", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

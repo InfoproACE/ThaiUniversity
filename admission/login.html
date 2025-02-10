@@ -29,14 +29,65 @@
     </header>
 
     <section class="form-section">
-        <h1>ลงทะเบียนบัญชี TCAS68</h1>
-        <p>กรุณากรอกข้อมูลให้ครบถ้วนเพื่อทำการลงทะเบียนเข้าสู่ระบบการคัดเลือก TCAS68 ของมหาวิทยาลัยวิศวกรรมศาสตร์</p>
+    <div class="row">
+        <div class="col-md-2" style=" border-right: 1px solid #888; ">
+        <h1>เข้าสู่ระบบ
+
+</h1>
         
+        <form method="post" autocomplete="off" name="hello-sheet">
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-group">
+                        <label for="idCard" style=" width: 120%; ">เลขประจำตัวประชาชน
+
+</label>
+                        <input type="text" class="form-control" name="idCard" required="">
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-group">
+                        <label for="password" style=" width: 120%; ">รหัสผ่าน</label>
+                        <input type="password" class="form-control" id="password" name="password" required="">
+                        <i id="togglePassword" class="fa fa-eye-slash" aria-hidden="true" onclick="togglePassword('password', 'togglePassword')" style="cursor: pointer;margin-left: 99%;width: 15px;transform: translateY(-30px);"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" name="submit" value="" class="btn btn-primary">เข้าสู่ระบบ</button>
+        </form>
+        
+            </div>
+        
+                <div class="col-md-6">
+            </div>
+            </div>
     </section>
 
     <footer>
         <p>© 2025 มหาวิทยาลัยวิศวกรรมศาสตร์</p>
     </footer>
+
+    <script>
+        function togglePassword(id, iconId) {
+            var passwordField = document.getElementById(id);
+            var icon = document.getElementById(iconId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.className = "fa-solid fa-eye";
+            } else {
+                passwordField.type = "password";
+                icon.className = "fa fa-eye-slash";
+            }
+        }
+    </script>
 
 </body>
 </html>

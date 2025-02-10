@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="col.css">
     <style>button.btn.btn-primary:hover { background: #00058e; color: #fff; } button.btn.btn-primary { background: #0007c0; color: #fff; padding: 12px 16px; border-radius: 5px; transition: 0.3s; border: none; width: 100%; font-family: 'Kanit'; font-size: 14px; }</style>
@@ -50,12 +51,15 @@
                     <div class="form-group">
                         <label for="password">รหัสผ่าน <star class="star">*</star></label>
                         <input type="password" class="form-control" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <i id="togglePassword" class="fa fa-eye-slash" aria-hidden="true" onclick="togglePassword('password', 'togglePassword')" style="cursor: pointer;margin-left: 99%;width: 15px;transform: translateY(-30px);"></i>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="confirmPassword">ยืนยันรหัสผ่าน <star class="star">*</star></label>
-                        <input type="password" class="form-control" name="confirmPassword" required>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                        <i id="toggleConfirmPassword" class="fa fa-eye-slash" aria-hidden="true" onclick="togglePassword('confirmPassword', 'toggleConfirmPassword')" style="cursor: pointer;margin-left: 99%;width: 15px;transform: translateY(-30px);"></i>
                     </div>
                 </div>
             </div>
@@ -112,6 +116,19 @@
             })
             .catch(error => console.error('Error!', error.message))
         })
+    </script>
+    <script>
+        function togglePassword(id, iconId) {
+            var passwordField = document.getElementById(id);
+            var icon = document.getElementById(iconId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.className = "fa-solid fa-eye";
+            } else {
+                passwordField.type = "password";
+                icon.className = "fa fa-eye-slash";
+            }
+        }
     </script>
 
 

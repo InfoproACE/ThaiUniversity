@@ -98,6 +98,7 @@ section.form-section {
 
 input.form-control {
     width: 100%;
+    font-family: inherit;
 }
 
 input.submit {
